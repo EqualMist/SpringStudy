@@ -3,5 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean name="student" class="com.test.bean.Student" scope="singleton" init-method="init" destroy-method="destroy"/>
+    <bean name="student" class="com.test.bean.Student" scope="singleton" init-method="init" destroy-method="destroy">
+        <property name="name" value="John"/>
+        <property name="age" value="18"/>
+    </bean>
+
+    <bean name="card" class="com.test.bean.Card" scope="singleton"/>
 </beans>

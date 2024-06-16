@@ -10,10 +10,11 @@ public class Main {
 
 //        Student student = (Student) context.getBean(Student.class);
         Student student = (Student) context.getBean("student");
+        student.say("Dear John.");
 //        Student student2 = (Student) context.getBean("student");
 
 
-        System.out.println(student);
+        System.out.println(student.getName() + " " + student.getAge());
 //        System.out.println(student2);
 
         context.close();
