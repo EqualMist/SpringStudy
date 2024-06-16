@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean name="student" class="com.test.bean.Student" scope="singleton" init-method="init" destroy-method="destroy">
         <property name="name" value="John"/>
@@ -9,4 +11,20 @@
     </bean>
 
     <bean name="card" class="com.test.bean.Card" scope="singleton"/>
+    <bean name="test" class="com.test.aop.AopTest"></bean>
+    <bean name="before" class="com.test.aop.AopAdvice"></bean>
+    <aop:config>
+<!--        <aop:aspect ref="test">-->
+<!--            <aop:pointcut id="testPointcut" expression="execution(* com.test.bean.Student.say(String))"/>-->
+<!--&lt;!&ndash;            <aop:after-returning method="after" pointcut-ref="testPointcut"/>&ndash;&gt;-->
+<!--            <aop:around method="around" pointcut-ref="testPointcut"/>-->
+<!--        </aop:aspect>-->
+<!--        <aop:aspect ref="test">-->
+<!--            <aop:pointcut id="testPointcut2" expression="@annotation(Deprecated)"/>-->
+<!--            <aop:after-returning method="before" pointcut-ref="testPointcut2"/>-->
+<!--        </aop:aspect>-->
+        <aop:pointcut id="testPointcut3" expression="execution(* com.test.bean.Student.say(String))"/>
+        <aop:advisor advice-ref="before" pointcut-ref="testPointcut3"/>
+    </aop:config>
+
 </beans>

@@ -11,7 +11,7 @@ public class Student {
     }
 
     public Student() {
-        System.out.println("Student Constructor");
+//        System.out.println("Student Constructor");
     }
 
     public Student(String name) {
@@ -53,5 +53,10 @@ public class Student {
 
     public void say(String text) {
         System.out.println("Hello, I am a student, my name is " + name + ", my age is:" + age + ", I said:" + text);
+    }
+
+    @Deprecated
+    public void deprecatedMethod() {
+        System.out.println("Deprecated method");
     }
 }

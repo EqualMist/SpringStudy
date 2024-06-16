@@ -14,8 +14,9 @@ public class Main {
 //        Student student2 = (Student) context.getBean("student");
 
 
-        System.out.println(student.getName() + " " + student.getAge());
+//        System.out.println(student.getName() + " " + student.getAge());
 //        System.out.println(student2);
+//        student.deprecatedMethod();
 
         context.close();
     }
