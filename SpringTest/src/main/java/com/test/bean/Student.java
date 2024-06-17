@@ -1,6 +1,7 @@
 package com.test.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,6 @@ public class Student {
 
     String name;
     int age;
-    @Resource
     Card card;
 
     @PostConstruct
@@ -58,12 +58,13 @@ public class Student {
 
     @Autowired
     public void setCard(Card card) {
-        System.out.println("Set card called:" + card);
+//        System.out.println("Set card called:" + card);
         this.card = card;
     }
 
-    public void say(String text) {
-        System.out.println("Hello, I am a student, my name is " + name + ", my age is:" + age + ", I said:" + text);
+    public String say(String text) {
+        System.out.println("Hello, I am a student, my name is " + name + ", my age is:" + age + ", I said:" + text + ", my card is:" + card);
+        return text;
     }
 
     @Deprecated

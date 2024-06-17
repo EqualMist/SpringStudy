@@ -2,13 +2,15 @@ package com.test.config;
 
 import com.test.bean.Card;
 import com.test.bean.Student;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
-@ComponentScan("com.test.bean")
+@EnableAspectJAutoProxy
+@ComponentScans({
+        @ComponentScan("com.test.bean"),
+        @ComponentScan("com.test.aop")
+})
 @Configuration
+@Import(TestConfiguration.class)
 public class MainConfiguration {
 
 //    @Bean
