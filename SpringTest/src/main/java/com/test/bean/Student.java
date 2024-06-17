@@ -1,16 +1,26 @@
 package com.test.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+
+@Component
 public class Student {
 
     String name;
     int age;
+    @Resource
     Card card;
 
+    @PostConstruct
     public void init() {
-        System.out.println("Student init method");
+        System.out.println("Student init method, card:" + card);
     }
 
     public Student() {
+        System.out.println("Student constructor called");
     }
 
     public Student(String name) {
@@ -46,7 +56,9 @@ public class Student {
         return card;
     }
 
+    @Autowired
     public void setCard(Card card) {
+        System.out.println("Set card called:" + card);
         this.card = card;
     }
 

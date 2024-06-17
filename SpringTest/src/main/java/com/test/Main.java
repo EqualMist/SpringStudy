@@ -9,8 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfiguration.class)) {
-            Card card = context.getBean(Card.class);
-            System.out.println(card);
+            Student student = context.getBean(Student.class);
+            System.out.println(student);
+//            System.out.println(student.getCard());
         }
     }
 }
