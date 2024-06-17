@@ -1,23 +1,16 @@
 package com.test;
 
+import com.test.bean.Card;
 import com.test.bean.Student;
+import com.test.config.MainConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println();
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("test.xml");
-
-//        Student student = (Student) context.getBean(Student.class);
-        Student student = (Student) context.getBean("student");
-        student.say("Dear John.");
-//        Student student2 = (Student) context.getBean("student");
-
-
-//        System.out.println(student.getName() + " " + student.getAge());
-//        System.out.println(student2);
-//        student.deprecatedMethod();
-
-        context.close();
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfiguration.class)) {
+            Card card = context.getBean(Card.class);
+            System.out.println(card);
+        }
     }
 }
