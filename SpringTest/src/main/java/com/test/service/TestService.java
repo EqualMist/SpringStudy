@@ -7,4 +7,6 @@ import java.util.List;
 public interface TestService {
 
     List<Student>getStudent();
+
+    void insertStudent(Student student);
 }

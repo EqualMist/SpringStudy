@@ -15,6 +15,7 @@ public class Student {
     int sid;
     String name;
     String sex;
+    int grade;
     int age;
 
 
