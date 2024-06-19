@@ -18,6 +18,7 @@ public class Student {
     int grade;
     int age;
 
+    public static class ArtStudent extends Student {
 
-
+    }
 }

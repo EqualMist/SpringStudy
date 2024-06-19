@@ -1,6 +1,8 @@
 package com.test.config;
 
 
+import com.test.post.TestBeanDefinitionProcessor;
+import com.test.post.TestBeanDefinitionRegistrar;
 import com.zaxxer.hikari.HikariDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -16,11 +18,13 @@ import java.io.IOException;
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
 @ComponentScans({
-        @ComponentScan("com.test.service")
+        @ComponentScan("com.test")
 
 })
 @Configuration
 @MapperScan("com.test.mapper")
+//@Import(TestBeanDefinitionRegistrar.class)
+//@Import(TestBeanDefinitionProcessor.class)
 public class MainConfiguration {
 
     @Bean
